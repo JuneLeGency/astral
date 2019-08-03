@@ -1,7 +1,7 @@
 <template>
   <VueModal name="settings-modal" height="auto">
     <div class="flex items-center justify-between px-4 py-3 bg-grey-lightest leading-none">
-      <h3>Settings</h3>
+      <h3>设置</h3>
       <button
         class="text-2xl focus-none rounded-full w-8 h-8 bg-transparent indent-px hover:bg-grey-light transition-bg"
         @click="closeModal"
@@ -11,53 +11,52 @@
     </div>
     <div class="px-4 py-6 bg-white border-b border-t border-grey-light flex justify-between items-center">
       <span class="leading-normal">
-        Show Language Tags on Stars
+        在收藏栏展示语言标签
       </span>
       <ToggleSwitch v-model="user.show_language_tags" @change="setShowLanguageTags(user.show_language_tags)" />
     </div>
     <div class="px-4 py-6 bg-white border-b border-grey-light flex justify-between items-center">
       <span class="leading-normal">
-        Auto-Save Notes
+        自动保存便签
       </span>
       <ToggleSwitch v-model="user.autosave_notes" @change="setAutosaveNotes(user.autosave_notes)" />
     </div>
     <div class="px-4 py-6 bg-white border-b border-grey-light flex justify-between">
       <span class="leading-normal">
-        Export Stars As JSON
+        到处收藏到JSON文件
       </span>
       <a :href="exportUrl" target="_blank" rel="noopener" class="btn btn-grey">
-        Export
+        导出
       </a>
     </div>
     <div class="px-4 py-6 bg-white border-b border-grey-light">
       <div class="flex justify-between items-center">
         <span class="leading-normal">
-          GitHub Access
+          GitHub 授权
         </span>
         <div>
           <button class="btn text-sm py-2 px-4 btn-danger ml-2" @click="revokeAccessButtonClicked">
-            Revoke Access
+            取消授权
           </button>
         </div>
       </div>
       <div class="flex justify-end mt-6">
         <p class="text-sm text-grey-darker">
-          This will log you out and revoke your authorization granted to Astral for accessing your GitHub account. You
-          will not lose any data.
+          你会登出并取消授权Github账户给本应用。你不会丢失任何数据。
         </p>
       </div>
     </div>
     <div class="px-4 py-6 bg-white">
       <div class="flex justify-between items-center">
         <span class="leading-normal">
-          Delete Account
+          删除账户
         </span>
         <div>
           <input
             v-show="deleteUserClicked"
             v-model="deleteConfirmation"
             type="text"
-            placeholder="Enter your username to confirm"
+            placeholder="输入你的用户名确认"
             class="text-input text-sm px-2 w-64"
           />
           <button
@@ -65,13 +64,13 @@
             class="btn text-sm py-2 px-4 btn-danger ml-2"
             @click="deleteUserButtonClicked"
           >
-            {{ deleteUserClicked ? 'Confirm Deletion' : 'Delete My Account' }}
+            {{ deleteUserClicked ? '确认删除' : '删除我的账户' }}
           </button>
         </div>
       </div>
       <div v-show="deleteUserClicked" class="flex justify-end mt-6">
         <p class="text-sm text-red-light">
-          This will permanently delete all of your data. Be careful!
+          小心。该操作会删除你的账户数据。
         </p>
       </div>
     </div>

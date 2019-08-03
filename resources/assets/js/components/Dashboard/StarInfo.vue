@@ -11,7 +11,7 @@
           width="16"
           class="mr-1 pointer-events-none stroke-current fill-none inline-block align-bottom"
         />
-        <span>{{ notesShowing ? 'Hide Notes' : 'Show Notes' }}</span>
+        <span>{{ notesShowing ? '隐藏便签' : '显示便签' }}</span>
       </button>
       <button
         class="bg-grey-light hover:bg-grey transition-bg rounded text-grey-darkest text-xs px-2 py-2 font-bold tracking-wide uppercase focus-none no-underline ml-4"
@@ -23,10 +23,10 @@
           width="16"
           class="mr-1 pointer-events-none stroke-current fill-none inline-block align-bottom"
         />
-        <span>Unstar</span>
+        <span>取消收藏</span>
       </button>
       <div class="ml-auto">
-        <label for="starCloneUrl" class="mr-2 font-bold cursor-pointer">Clone:</label>
+        <label for="starCloneUrl" class="mr-2 font-bold cursor-pointer">克隆:</label>
         <input
           id="starCloneUrl"
           :value="currentStarCloneUrl"
@@ -42,12 +42,12 @@
       class="flex flex-col flex-1 items-center justify-center w-full bg-grey-lighter no-repo-selected"
     >
       <img src="/images/not-selected.svg" class="w-64 mb-8" />
-      <span class="font-bold bg-grey px-4 py-2 text-white rounded">No Repo Selected</span>
+      <span class="font-bold bg-grey px-4 py-2 text-white rounded">当前未选择项目</span>
     </div>
     <Readme v-if="readme && !noRepoSelected" :readme="readme" :star="currentStar" />
     <div v-if="repoHasNoReadme" class="flex flex-col flex-1 items-center justify-center w-full bg-grey-lighter">
       <img src="/images/no-readme.svg" class="w-64 mb-8" />
-      <span class="font-bold bg-grey px-4 py-2 text-white rounded">No README Found</span>
+      <span class="font-bold bg-grey px-4 py-2 text-white rounded">找不到 Readme 文件</span>
     </div>
     <div
       class="readme-loader absolute pin-t pib-b pin-l w-full flex items-center justify-center h-full transition-opacity opacity-0 pointer-events-none"

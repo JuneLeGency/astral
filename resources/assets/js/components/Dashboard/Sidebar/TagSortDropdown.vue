@@ -2,16 +2,16 @@
   <div v-show="visible" class="dropdown tag-sort-dropdown">
     <ul class="tag-sort-items">
       <li class="tag-sort-item dropdown-item text-xs py-3 pl-3 pr-4 whitespace-no-wrap" @click="sortTags('ALPHA_ASC')">
-        <i class="fas fa-sort-alpha-down mr1" /> Alphabetical (A-Z)
+        <i class="fas fa-sort-alpha-down mr1" /> 按字母 (A-Z)
       </li>
       <li class="tag-sort-item dropdown-item text-xs py-3 pl-3 pr-4 whitespace-no-wrap" @click="sortTags('ALPHA_DESC')">
-        <i class="fas fa-sort-alpha-up mr1" /> Alphabetical (Z-A)
+        <i class="fas fa-sort-alpha-up mr1" /> 按字母 (Z-A)
       </li>
       <li class="tag-sort-item dropdown-item text-xs py-3 pl-3 pr-4 whitespace-no-wrap" @click="sortTags('STARS_DESC')">
-        <i class="fas fa-sort-numeric-down mr1" /> Most Stars
+        <i class="fas fa-sort-numeric-down mr1" /> 最多收藏
       </li>
       <li class="tag-sort-item dropdown-item text-xs py-3 pl-3 pr-4 whitespace-no-wrap" @click="sortTags('STARS_ASC')">
-        <i class="fas fa-sort-numeric-up mr1" /> Fewest Stars
+        <i class="fas fa-sort-numeric-up mr1" /> 最少收藏
       </li>
     </ul>
   </div>

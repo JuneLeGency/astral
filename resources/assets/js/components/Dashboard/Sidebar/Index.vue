@@ -1,6 +1,6 @@
 <template>
   <div class="sidebar bg-blue-darkest py-8 overflow-y-scroll px-4">
-    <SidebarHeader title="Stars">
+    <SidebarHeader title="收藏">
       <RefreshButton :active="refreshingStars" @click.native="refreshStars" />
     </SidebarHeader>
     <ul class="dashboard-list sidebar-stars list-none m-0 p-0 pb-3">
@@ -8,7 +8,7 @@
         :class="{ selected: noFiltersApplied }"
         :badge="totalStars"
         class="all-stars"
-        title="All Stars"
+        title="所有收藏"
         icon="InboxIcon"
         icon-size="16"
         @click.native="resetFilters"
@@ -17,7 +17,7 @@
         :class="{ selected: viewingUntagged }"
         :badge="totalUntaggedStars"
         class="untagged-stars"
-        title="Untagged Stars"
+        title="未分类"
         icon="StarIcon"
         icon-size="16"
         @click.native="setViewingUntagged(true)"
@@ -25,7 +25,7 @@
     </ul>
     <SidebarGroup :collapsible="true" :is-collapsed="tagsCollapsed" @toggle="toggleCollapsedState('tags')">
       <template v-slot:header="{ toggleCollapsed }">
-        <SidebarHeader title="Tags" @click.native.stop="toggleCollapsed">
+        <SidebarHeader title="标签" @click.native.stop="toggleCollapsed">
           <TagSorter />
         </SidebarHeader>
       </template>
@@ -50,7 +50,7 @@
     </SidebarGroup>
     <SidebarGroup :collapsible="true" :is-collapsed="languagesCollapsed" @toggle="toggleCollapsedState('languages')">
       <template v-slot:header="{ toggleCollapsed }">
-        <SidebarHeader title="Languages" @click.native="toggleCollapsed" />
+        <SidebarHeader title="语言" @click.native="toggleCollapsed" />
       </template>
       <template v-slot:content="{ isCollapsed }">
         <ul v-show="!isCollapsed" class="dashboard-list sidebar-languages list-none m-0 p-0 pb-3">
@@ -160,7 +160,7 @@ export default {
     ]),
     async refreshStars() {
       this.refreshingStars = true
-      this.$bus.$emit('STATUS', 'Refreshing stars...')
+      this.$bus.$emit('STATUS', '刷新收藏列表...')
       await this.fetchGitHubStars({ cursor: false, refresh: true })
       while (this.pageInfo.hasNextPage) {
         await this.fetchGitHubStars({
@@ -183,9 +183,9 @@ export default {
     async doDeleteTag({ id, name }) {
       try {
         await this.deleteTag(id)
-        this.$bus.$emit('NOTIFICATION', `${name} tag deleted!`)
+        this.$bus.$emit('NOTIFICATION', `标签 ${name}  已删除!`)
       } catch {
-        this.$bus.$emit('NOTIFICATION', 'Whoops, that tag could not be deleted. Please try again.', 'error')
+        this.$bus.$emit('NOTIFICATION', '哟, 这标签删不得，待会儿再试试吧', 'error')
       }
     },
     async doRenameTag(data) {
@@ -193,7 +193,7 @@ export default {
       const oldName = this.tags.find(s => s.id === id).name
       try {
         await this.renameTag(data)
-        this.$bus.$emit('NOTIFICATION', `${oldName} tag renamed to ${name}!!`)
+        this.$bus.$emit('NOTIFICATION', `标签 ${oldName} 已重命名为 ${name}!!`)
       } catch (e) {
         this.$bus.$emit('NOTIFICATION', e.errors.name[0], 'error')
       }
@@ -213,16 +213,16 @@ export default {
       if (Array.isArray(data)) {
         try {
           await this.addTagToStars({ stars: data, tag })
-          this.$bus.$emit('NOTIFICATION', `${tag.name} tag was added to ${data.length} stars!`)
+          this.$bus.$emit('NOTIFICATION', `标签${tag.name} 添加到了 ${data.length} 个收藏中!`)
         } catch {
-          this.$bus.$emit('NOTIFICATION', 'Whoops, we could not tag that star. Please try again.', 'error')
+          this.$bus.$emit('NOTIFICATION', '哟, 咱没法给这个收藏打标签，再试试。', 'error')
         }
       } else {
         try {
           await this.addTagToStars({ stars: [data], tag })
           this.$bus.$emit('NOTIFICATION', `${tag.name} tag was added to ${data.nameWithOwner}!`)
         } catch {
-          this.$bus.$emit('NOTIFICATION', 'Whoops, we could not tag those stars. Please try again.', 'error')
+          this.$bus.$emit('NOTIFICATION', '哟, 咱没法给那些收藏打标签，再试试。', 'error')
         }
       }
     }

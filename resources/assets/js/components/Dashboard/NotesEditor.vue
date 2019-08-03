@@ -1,7 +1,7 @@
 <template>
   <div class="absolute pin-t pin-l pin-b mt-16 w-full bg-white flex flex-col">
     <button class="btn btn-brand absolute pin-r mt-2 mr-4 z-10 focus-none" @click="saveNotes">
-      Save
+      保存
     </button>
     <textarea ref="editor" />
   </div>
@@ -63,70 +63,70 @@ export default {
           name: 'bold',
           action: EasyMDE.toggleBold,
           className: 'fas fa-bold',
-          title: 'Bold'
+          title: '粗体'
         },
         {
           name: 'italic',
           action: EasyMDE.toggleItalic,
           className: 'fas fa-italic',
-          title: 'Italic'
+          title: '斜体'
         },
         {
           name: 'heading',
           action: EasyMDE.toggleHeadingSmaller,
           className: 'fas fa-heading',
-          title: 'Heading'
+          title: '标题'
         },
         '|',
         {
           name: 'code',
           action: EasyMDE.toggleCodeBlock,
           className: 'fas fa-code',
-          title: 'Code'
+          title: '代码'
         },
         {
           name: 'quote',
           action: EasyMDE.toggleBlockquote,
           className: 'fas fa-quote-left',
-          title: 'Quote'
+          title: '引用'
         },
         {
           name: 'unordered-list',
           action: EasyMDE.toggleUnorderedList,
           className: 'fas fa-list-ul',
-          title: 'Unordered List'
+          title: '无序列表'
         },
         {
           name: 'ordered-list',
           action: EasyMDE.toggleOrderedList,
           className: 'fas fa-list-ol',
-          title: 'Ordered List'
+          title: '有序列表'
         },
         '|',
         {
           name: 'link',
           action: EasyMDE.drawLink,
           className: 'fas fa-link',
-          title: 'Link'
+          title: '链接'
         },
         {
           name: 'image',
           action: EasyMDE.drawImage,
           className: 'fas fa-image',
-          title: 'Image'
+          title: '图片'
         },
         '|',
         {
           name: 'preview',
           action: EasyMDE.togglePreview,
           className: 'fas fa-eye',
-          title: 'Preview'
+          title: '预览'
         },
         {
           name: 'fullscreen',
           action: EasyMDE.toggleFullScreen,
           className: 'fas fa-arrows-alt',
-          title: 'Image'
+          title: '全屏'
         }
       ]
     })

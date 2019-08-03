@@ -11,7 +11,7 @@
           height="14"
           class="mr-1 pointer-events-none stroke-current fill-none transition-stroke"
         />
-        <span class="dashboard-list-item-name relative flex-grow">Add a tag...</span>
+        <span class="dashboard-list-item-name relative flex-grow">添加标签...</span>
       </div>
     </Transition>
     <Transition name="new-tag-form">
@@ -25,7 +25,7 @@
           v-model="tagName"
           class="h-10 text-base rounded bg-white px-2 w-full"
           type="text"
-          placeholder="Enter a tag name..."
+          placeholder="输入标签名..."
           @blur="formBlurred"
         />
       </form>

@@ -5,7 +5,7 @@
       href="/auth/github"
       class="auth-button inline-block rounded border border-white text-white text-center no-underline"
     >
-      Sign In
+      登录
     </a>
   </div>
 </template>

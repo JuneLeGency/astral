@@ -6,7 +6,7 @@
       class="bg-transparent text-sm uppercase flex items-center cursor-pointer text-grey-darker hover:text-grey transition-color focus-none"
       @click.stop="toggleDropdown"
     >
-      <span>Sort</span>
+      <span>排序</span>
       <Icon type="ChevronDownIcon" class="transition-stroke stroke-current fill-none ml-1" height="16" width="16" />
     </button>
     <TagSortDropdown :visible="dropdownVisible" />

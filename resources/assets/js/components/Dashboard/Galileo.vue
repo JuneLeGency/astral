@@ -10,7 +10,7 @@
         v-model="currentSearchQuery"
         type="text"
         class="search-input text-input w-full pl-8 pr-8"
-        placeholder="Gaze through your telescope"
+        placeholder="用望远镜揪他出来~"
         @focus="inputFocused = true"
         @blur="inputFocused = false"
       />

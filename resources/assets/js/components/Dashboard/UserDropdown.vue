@@ -11,7 +11,7 @@
       <ul>
         <li>
           <a class="dropdown-item" href="#" @click.prevent="showSettingsModal">
-            Settings
+            设置
           </a>
         </li>
         <li>
@@ -21,12 +21,12 @@
         </li>
         <li>
           <a class="dropdown-item" href="https://patreon.com/syropian" target="_blank" rel="noopener">
-            Patreon
+            众筹赞助
           </a>
         </li>
         <li>
           <RouterLink class="dropdown-item" to="/auth/logout">
-            Logout
+            登出
           </RouterLink>
         </li>
       </ul>

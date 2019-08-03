@@ -48,7 +48,7 @@
           class="transition-opacity text-xs text-grey-darker bg-grey-lighter rounded-full py-1 px-2 mr-2 opacity-0 group-hover:opacity-100"
           @click.stop="startEditing"
         >
-          Edit Tags
+          编辑标签
         </button>
       </li>
     </ul>
@@ -76,7 +76,7 @@ export default {
       awesomplete: null,
       mutableTags: [],
       newTag: '',
-      placeholder: 'Add a tag',
+      placeholder: '添加标签',
       isEditing: false,
       canSaveTags: true
     }

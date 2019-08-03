@@ -37,7 +37,7 @@
           target="_blank"
           rel="noopener"
           @click.stop
-          >View on GitHub</a
+          >打开 GitHub</a
         >
       </div>
     </div>
